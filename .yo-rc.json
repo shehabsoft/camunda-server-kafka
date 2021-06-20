@@ -1,0 +1,45 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "org.emu.camunda",
+      "nativeLanguage": "ar-ly"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "microservice",
+    "baseName": "camundaServer",
+    "packageName": "org.emu.camunda",
+    "packageFolder": "org/emu/camunda",
+    "serverPort": "8081",
+    "authenticationType": "oauth2",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "consul",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MWNkMjkzYTY1ZTdmNDhkMmZkMjdlN2ZjZDE4Mjc0OGEzNzk0ZjliY2YwM2U2NGU1ODdiMmM3MzJmMjMzZDQ1MTJhOGFjNDRmZGEzMzgyNjU4MDUwOTUyNTE2ZmYwMDZmZTgwODkwNDE2ZjdlOTNkZDE0YjZkNDU2Zjc3Njc2MjE=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1622719273265,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-kafka",
+        "version": "1.0.1"
+      }
+    ],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "ar-ly",
+    "languages": ["ar-ly", "en"],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
