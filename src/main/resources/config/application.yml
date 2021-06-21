@@ -164,28 +164,50 @@ spring:
   output:
     ansi:
       console-available: true
-  security:
-    oauth2:
-      client:
-        provider:
-          oidc:
-            issuer-uri: http://192.168.5.86/auth/realms/myRealm
-        registration:
-          oidc:
-            client-id: login-app
-            client-secret: 3d62e825-e293-4824-a789-d8180bfc86f6
-
-server:
-  servlet:
-    session:
-      cookie:
-        http-only: true
 
   context-path: src/main/resources/static/forms/start-form.html
 info:
   # Comma separated list of profiles that will trigger the ribbon to show
   display-ribbon-on-profiles: 'dev'
+# Spring Boot Security OAuth2 SSO
+spring.security:
+  oauth2:
+    client:
+      registration:
+        keycloak:
+          provider: keycloak
+          client-id: camunda-identity-service
+          client-secret: 1af9c09e-d82c-4dae-b428-9a191e8249e2
+          authorization-grant-type: authorization_code
+          redirect-uri: 'http://localhost:8087/camunda/app/welcome/default/login/oauth2/code/keycloak'
+          scope: openid, profile, email
+      provider:
+        keycloak:
+          issuer-uri: http://192.168.5.86/auth/realms/myRealm
+          authorization-uri: http://192.168.5.86/auth/realms/myRealm/protocol/openid-connect/auth
+          user-info-uri: http://192.168.5.86/auth/realms/myRealm/protocol/openid-connect/userinfo
+          token-uri: http://192.168.5.86/auth/realms/myRealm/protocol/openid-connect/token
+          jwk-set-uri: http://192.168.5.86/auth/realms/myRealm/protocol/openid-connect/certs
+          # set user-name-attribute one of: authorization_code client_credentials
+          # - sub                -> default; using keycloak ID as camunda user ID
+          # - email              -> useEmailAsCamundaUserId=true
+          # - preferred_username -> useUsernameAsCamundaUserId=true
+          user-name-attribute: preferred_username
 
+# Camunda Keycloak Identity Provider Plugin
+plugin.identity.keycloak:
+  keycloakIssuerUrl: http://192.168.5.86/auth/realms/myRealm
+  keycloakAdminUrl: http://192.168.5.86/auth/admin/realms/myRealm
+  clientId: login-app
+  clientSecret: 3d62e825-e293-4824-a789-d8180bfc86f6
+  useUsernameAsCamundaUserId: true
+  useGroupPathAsCamundaGroupId: true
+  administratorGroupName: camunda-admin
+server:
+  servlet:
+    session:
+      cookie:
+        http-only: true
 # ===================================================================
 # JHipster specific properties
 #
@@ -231,6 +253,7 @@ kafka:
   producer:
     key.serializer: org.apache.kafka.common.serialization.StringSerializer
     value.serializer: org.apache.kafka.common.serialization.StringSerializer
+
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class

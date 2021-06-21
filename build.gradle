@@ -298,6 +298,10 @@ dependencies {
     implementation "io.projectreactor:reactor-core:3.4.3"
     compileOnly('org.projectlombok:lombok')
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+
+    //added by khalid for keycloak integration 21/6/2021
+    implementation group: 'org.camunda.bpm.extension', name: 'camunda-bpm-identity-keycloak', version: '2.0.0'
+
 }
 
 if (project.hasProperty("gae")) {

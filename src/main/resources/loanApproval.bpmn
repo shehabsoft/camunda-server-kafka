@@ -6,7 +6,7 @@
       <bpmn2:incoming>Flow_0cmxgur</bpmn2:incoming>
       <bpmn2:incoming>Flow_1sbna65</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:userTask id="UserTask_1" name="Verify Request ??" camunda:formKey="embedded:app:forms/task-form.html" camunda:assignee="demo">
+    <bpmn2:userTask id="UserTask_1" name="Verify Request ??" camunda:formKey="embedded:app:forms/task-form.html" camunda:assignee="m">
       <bpmn2:incoming>Flow_0bu4vpp</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0q6q0j1</bpmn2:outgoing>
     </bpmn2:userTask>
@@ -114,12 +114,12 @@
       <bpmn2:messageEventDefinition id="MessageEventDefinition_0bro7es" messageRef="Message_07penmf" />
     </bpmn2:intermediateCatchEvent>
     <bpmn2:sequenceFlow id="Flow_1sbna65" sourceRef="Event_08s54fy" targetRef="EndEvent_1" />
-    <bpmn2:exclusiveGateway id="Gateway_0kikj6w" name="Check Verification">
+    <bpmn2:exclusiveGateway id="Gateway_0kikj6w" name="Checking For Approval">
       <bpmn2:incoming>Flow_138y485</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0560epz</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_17npfwp</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:eventBasedGateway id="Gateway_0e9o4g7" name="Check Business Rule">
+    <bpmn2:eventBasedGateway id="Gateway_0e9o4g7">
       <bpmn2:incoming>Flow_17npfwp</bpmn2:incoming>
       <bpmn2:outgoing>Flow_05o3l79</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_0vn1igr</bpmn2:outgoing>
@@ -218,7 +218,7 @@
       <bpmndi:BPMNShape id="Gateway_1b34u8h_di" bpmnElement="Gateway_0kikj6w" isMarkerVisible="true">
         <dc:Bounds x="730" y="255" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="710" y="316" width="89" height="14" />
+          <dc:Bounds x="721.5" y="306" width="67" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0gcch3v_di" bpmnElement="Event_0gcch3v">
@@ -226,9 +226,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1qxinqc_di" bpmnElement="Gateway_0e9o4g7">
         <dc:Bounds x="790" y="361" width="50" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="775" y="418" width="80" height="27" />
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0grza92_di" bpmnElement="Event_08s54fy">
         <dc:Bounds x="667" y="428" width="36" height="36" />
@@ -245,7 +242,7 @@
       <bpmndi:BPMNShape id="Event_0kchet0_di" bpmnElement="Event_1t6nafp">
         <dc:Bounds x="937" y="428" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="977" y="418.5" width="85" height="27" />
+          <dc:Bounds x="842" y="432.5" width="85" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="SendTask_01qhmry_di" bpmnElement="Task_1cnv22b">

@@ -30,7 +30,7 @@ import org.zalando.problem.spring.web.advice.security.SecurityProblemSupport;
 @Import(SecurityProblemSupport.class)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Value("${spring.security.oauth2.client.provider.oidc.issuer-uri}")
+    @Value("${spring.security.oauth2.client.provider.keycloak.issuer-uri}")
     private String issuerUri;
 
     private final JHipsterProperties jHipsterProperties;
