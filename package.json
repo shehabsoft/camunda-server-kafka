@@ -1,0 +1,24 @@
+{
+  "name": "camunda-server",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Description for camundaServer",
+  "license": "UNLICENSED",
+  "scripts": {
+    "prettier:format": "prettier --write \"{,src/**/}*.{md,json,yml}\""
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "1.0.13-4.3.1",
+    "generator-jhipster": "6.10.5",
+    "generator-jhipster-kafka": "1.0.1",
+    "husky": "4.2.5",
+    "lint-staged": "8.2.1",
+    "prettier": "2.1.2"
+  },
+  "engines": {
+    "node": ">=12.16.1"
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ]
+}

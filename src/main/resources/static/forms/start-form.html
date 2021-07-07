@@ -1,0 +1,220 @@
+<center><h1>New Member</h1></center>
+<form role="form"
+      name="variablesForm">
+
+    <div class="row">
+
+
+        <div class="col-xs-6">
+            <!-- Gender -->
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <div class="controls">
+
+                    <!--select box -->
+                    <select class="form-control"
+                            cam-variable-name="gender"
+                            cam-variable-type="String"
+                    >
+                        <option value="MALE" checked>Mr.</option>
+                        <option value="FEMALE">Mrs.</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Firstname -->
+            <div class="form-group">
+                <label for="inputFirstname">First Name</label>
+                <div class="controls">
+                    <input class="form-control"
+                           required
+                           type="text"
+                           cam-variable-name="firstname"
+                           cam-variable-type="String"
+                           placeholder="John"
+                           ng-minlength="2"
+                           ng-maxlength="20" />
+                </div>
+            </div>
+
+            <!-- Lastname -->
+            <div class="form-group">
+                <label for="inputLastname">Last Name</label>
+                <div class="controls">
+                    <input class="form-control"
+                           required
+                           type="text"
+                           cam-variable-name="lastname"
+                           cam-variable-type="String"
+                           placeholder="Doe"
+                           ng-minlength="2"
+                           ng-maxlength="20" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail">birthDate </label>
+                <div class="controls">
+                    <input class="form-control"
+                           required
+                           type="date"
+                           cam-variable-name="birthDate"
+                           cam-variable-type="String"
+                           placeholder="no"
+                           ng-minlength="2"
+                           ng-maxlength="20" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail">civilId </label>
+                <div class="controls">
+                    <input class="form-control"
+                           required
+                           type="text"
+                           cam-variable-name="civilId"
+                           cam-variable-type="String"
+                           placeholder="no"
+                           ng-minlength="2"
+                           ng-maxlength="20" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail">Phone </label>
+                <div class="controls">
+                    <input class="form-control"
+                           required
+                           type="text"
+                           cam-variable-name="phone"
+                           cam-variable-type="String"
+                           placeholder="no"
+                           ng-minlength="2"
+                           ng-maxlength="20" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail">email </label>
+                <div class="controls">
+                    <input class="form-control"
+                           required
+                           type="text"
+                           cam-variable-name="email"
+                           cam-variable-type="String"
+                           placeholder="no"
+                           ng-minlength="2"
+                           ng-maxlength="20" />
+                </div>
+            </div>
+            <!-- Email -->
+            <div class="form-group">
+                <label for="inputEmail">City</label>
+
+                <div class="controls">
+                    <select required
+                            class="form-control"
+                            name="loanType"
+                            cam-variable-name="address2"
+                            cam-variable-type="String"
+                    >
+                        <option value="Cairo" checked>Cairo</option>
+                        <option value="Assiut">Assiut</option>
+                        <option value="Alex">Alex</option>
+                    </select>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <div class="controls">
+        <textarea class="form-control"
+                  cam-variable-name="address1"
+                  cam-variable-type="String"
+                  rows="4"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="inputEmail">salary</label>
+                <div class="controls">
+                    <input class="form-control"
+                           required
+                           type="text"
+                           cam-variable-name="salary"
+                           cam-variable-type="String"
+                           placeholder="0.0"
+                           ng-minlength="2"
+                           ng-maxlength="20" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail">Membership Status </label>
+                <div class="controls">
+                    <select required
+                            class="form-control"
+                            name="loanType"
+                            cam-variable-name="membershipStatus"
+                            cam-variable-type="String"
+                    >
+                        <option value="1" checked>Active</option>
+                        <option value="2">Not Active</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail">Membership Category </label>
+                <div class="controls">
+                    <div class="controls">
+                        <select required
+                                class="form-control"
+                                name="loanType"
+                                cam-variable-name="membershipCategory"
+                                cam-variable-type="String"
+                        >
+                            <option value="1" checked>VIP</option>
+                            <option value="2">Doctor</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Membership Type </label>
+                    <div class="controls">
+                        <div class="controls">
+                            <select required
+                                    class="form-control"
+                                    name="loanType"
+                                    cam-variable-name="membershipType"
+                                    cam-variable-type="String"
+                            >
+                                <option value="1" checked>Doctors Syndicate</option>
+                                <option value="2">Pharmacists Syndicate</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Membership Level </label>
+                        <div class="controls">
+                            <select required
+                                    class="form-control"
+                                    name="loanType"
+                                    cam-variable-name="membershipLevel"
+                                    cam-variable-type="String"
+                            >
+                                <option value="1" checked>Bachelor</option>
+                                <option value="2">MBA</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address -->
+
+
+            </div>
+
+        </div>
+</form>
