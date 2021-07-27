@@ -75,7 +75,7 @@ public class CamundaUtils {
     }
 
     public VariableMap CompletesATaskAndUpdatesProcessVariables(String taskId, String executionId, Map<String, Object> variables) {
-        processEngine.getRuntimeService().setVariables(executionId, variables);
+       // processEngine.getRuntimeService().setVariables(executionId, variables);
         VariableMap variableMap = processEngine.getTaskService().completeWithVariablesInReturn(taskId, variables, false);
         return variableMap;
     }

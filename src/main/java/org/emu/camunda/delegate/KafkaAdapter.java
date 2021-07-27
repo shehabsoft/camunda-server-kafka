@@ -1,6 +1,7 @@
 package org.emu.camunda.delegate;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
@@ -21,6 +22,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -34,7 +36,8 @@ public class KafkaAdapter implements JavaDelegate {
 
     @Autowired
     ValidationPublisher validationPublisher;
-
+    @Autowired
+    private ObjectMapper objectMapper;
 	  private final Logger log = LoggerFactory.getLogger(KafkaAdapter.class);
 
 	  @Override
@@ -49,27 +52,45 @@ public class KafkaAdapter implements JavaDelegate {
           //
           String traceId = context.getProcessBusinessKey();
           String event = (String) varsMap.get("event");
-          String payload = (String) varsMap.get("payload");
+          LinkedHashMap payload = (LinkedHashMap) varsMap.get("payload");
+          MemberDto memberDto=null;
           Gson gson = new Gson();
           try {
-              MemberDto memberDto = gson.fromJson(payload, MemberDto.class);
+              Object payloadObject = payload.get(0);
+              memberDto = objectMapper.convertValue(payload, MemberDto.class);
+              context.setVariable("memberId",memberDto.getId());
+              context.setVariable("firstName",memberDto.getFirstName());
+              context.setVariable("lastName",memberDto.getLastName());
+
+              //  MemberDto memberDto = gson.fromJson(payloadObject, MemberDto.class);
+              LinkedHashMap approved=null;
+              boolean status;
               switch(event)
               {
                   case EVENTSTYPES.MEMBER_EVENT:
-                      memberStatusPublisher.raiseMemberEvent(memberDto, MemberStatus.CREATED,processInstanceId);
-                      break;
-                  case EVENTSTYPES.VALIDATED_EVENT:
-                      Object approved =  context.getVariable("approved");
 
-                      boolean status  = ((Boolean)approved) ;
-                      if(status) {
-                          validationPublisher.raiseValidationEvent(memberDto, ValidationStatus.NEW,"Member",processInstanceId);
+                        approved = (LinkedHashMap)context.getVariable("approved");
+                        String approvedV=(String)approved.get("value");
 
+                      if(approvedV.equalsIgnoreCase("true")) {
+                          memberStatusPublisher.raiseMemberEvent(memberDto, MemberStatus.COMPLETED, processInstanceId);
                       }else
                       {
-                          memberStatusPublisher.raiseMemberRejectionSEvent(memberDto, MemberApprovalStatus.REJECTED,processInstanceId);
+                          memberStatusPublisher.raiseMemberEvent(memberDto, MemberStatus.REJECTED, processInstanceId);
                       }
                       break;
+//                  case EVENTSTYPES.VALIDATED_EVENT:
+//                        approved =  context.getVariable("approved");
+//
+//                        status  = ((Boolean)approved) ;
+//                      if(status) {
+//                          validationPublisher.raiseValidationEvent(memberDto, ValidationStatus.NEW,"Member",processInstanceId);
+//
+//                      }else
+//                      {
+//                          memberStatusPublisher.raiseMemberRejectionSEvent(memberDto, MemberApprovalStatus.REJECTED,processInstanceId);
+//                      }
+//                      break;
              }
           } catch (Exception e)
           {

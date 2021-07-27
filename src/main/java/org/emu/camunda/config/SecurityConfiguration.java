@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -98,5 +99,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         jwtDecoder.setJwtValidator(withAudience);
 
         return jwtDecoder;
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web
+            .ignoring()
+            .antMatchers("/api/startProcessByMessageEvent/**").antMatchers("/task/{taskId}/{executionId}/complete/**");
+
     }
 }

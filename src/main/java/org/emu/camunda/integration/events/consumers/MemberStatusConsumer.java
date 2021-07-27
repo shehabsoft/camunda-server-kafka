@@ -25,23 +25,23 @@ CamundaUtils camundaUtils;
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Bean
-    public Consumer<MemberEvent> memberEventConsumer() {
-
-        return me -> {
-            log.debug("Inside memberEventConsumer");
-            if (me.getStatus() != null && me.getStatus().toString().equals("CREATED")) {
-                MemberDto memberDto = objectMapper.convertValue(me.getGenericDto(), MemberDto.class);
-                System.out.println(memberDto);
-            } else
-              if (me.getStatus() != null && me.getStatus().toString().equals("REJECTED")) {
-                MemberDto memberDto = objectMapper.convertValue(me.getGenericDto(), MemberDto.class);
-
-            }
-              camundaUtils.startProcessByMessageEvent(me);
-
-        };
-    }
+//    @Bean
+//    public Consumer<MemberEvent> memberEventConsumer() {
+//
+//        return me -> {
+//            log.debug("Inside memberEventConsumer");
+//            if (me.getStatus() != null && me.getStatus().toString().equals("CREATED")) {
+//                MemberDto memberDto = objectMapper.convertValue(me.getGenericDto(), MemberDto.class);
+//                System.out.println(memberDto);
+//            } else
+//              if (me.getStatus() != null && me.getStatus().toString().equals("REJECTED")) {
+//                MemberDto memberDto = objectMapper.convertValue(me.getGenericDto(), MemberDto.class);
+//
+//            }
+//              camundaUtils.startProcessByMessageEvent(me);
+//
+//        };
+//    }
 
     @Bean
     public Consumer<MemberApprovalEvent> memberApprovalEventConsumer() {
