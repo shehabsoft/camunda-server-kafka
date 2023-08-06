@@ -30,11 +30,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/**
- * Copyright 2021-2022 By Dirac Systems.
- *
- * Created by {@khalid.nouh on 6/6/2021}.
- */
+
 @Component
 public class CamundaUtils {
     @Autowired
