@@ -15,12 +15,8 @@ import java.util.List;
 
 /**
  * OAuth2 Authentication Provider for usage with Keycloak and KeycloakIdentityProviderPlugin.
- */
-/**
- * Copyright 2021-2022 By Dirac Systems.
- *
- * Created by {@khalid.nouh on 21/6/2021}.
- */
+
+
 public class KeycloakAuthenticationProvider extends ContainerBasedAuthenticationProvider {
 
     @Override
