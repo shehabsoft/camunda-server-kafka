@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * OAuth2 Authentication Provider for usage with Keycloak and KeycloakIdentityProviderPlugin.
 
 
 public class KeycloakAuthenticationProvider extends ContainerBasedAuthenticationProvider {
