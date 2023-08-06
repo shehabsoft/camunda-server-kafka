@@ -24,11 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Copyright 2021-2022 By Dirac Systems.
- * <p>
- * Created by khalid.nouh on 17/3/2021.
- */
+ 
 @Log4j2
 @RestController
 @RequestMapping("/api")
