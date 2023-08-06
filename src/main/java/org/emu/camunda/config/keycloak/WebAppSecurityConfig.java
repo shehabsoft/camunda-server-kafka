@@ -13,14 +13,7 @@ import org.springframework.web.context.request.RequestContextListener;
 
 import java.util.Collections;
 
-/**
- * Camunda Web application SSO configuration for usage with KeycloakIdentityProviderPlugin.
- */
-/**
- * Copyright 2021-2022 By Dirac Systems.
- *
- * Created by {@khalid.nouh on 21/6/2021}.
- */
+
 @ConditionalOnMissingClass("org.springframework.test.context.junit.jupiter.SpringExtension")
 @Configuration
 @Order(SecurityProperties.BASIC_AUTH_ORDER - 10)
